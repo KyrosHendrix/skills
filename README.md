@@ -43,9 +43,9 @@ These 30 skills are adapted from [pstack](https://github.com/cursor/plugins/tree
 
 pstack skills not included here: `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. UPSTREAM.md gives the reasons.
 
-## Motion and UI
+## From Emil Kowalski's skills
 
-Installed together on 2026-11-01. Most of them cite Emil Kowalski's design engineering philosophy. The source repo and license weren't recorded.
+These 16 skills come from [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills) by Emil Kowalski, MIT licensed. They cover motion, UI polish, and frontend craft.
 
 | Skill | Use it to |
 | --- | --- |
@@ -66,11 +66,11 @@ Installed together on 2026-11-01. Most of them cite Emil Kowalski's design engin
 | [review-animations](review-animations/SKILL.md) | Review animation code against a high craft bar. |
 | [write-swift](write-swift/SKILL.md) | Write modern Swift, including Swift 6 concurrency. |
 
-## Other
+## By Kyros
 
-| Skill | Use it to | Source |
-| --- | --- | --- |
-| [pr](pr/SKILL.md) | Write a PR title and body. | Matt Pocock's [pr skill](https://github.com/mattpocock/skills/blob/main/skills/engineering/pr/SKILL.md), which credits Dex Horthy's [show-me](https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md). Title conventions come from Theo's [file-pr](https://github.com/t3dotgg/tstack/blob/main/skills/file-pr/SKILL.md). |
+| Skill | Use it to |
+| --- | --- |
+| [pr](pr/SKILL.md) | Write a PR title and body. |
 
 ## Branches
 
