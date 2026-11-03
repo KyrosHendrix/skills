@@ -1,10 +1,10 @@
 # Explorer Prompt Template
 
-Build each explorer subagent's prompt from this template. Fill in the placeholders.
+Use this template as your checklist for each angle, or as each explorer's brief under dispatch. Fill in the placeholders.
 
 ---
 
-Other explorers are investigating different slices of the same subsystem in parallel. Don't try to cover everything. Focus on your assigned angle and go deep.
+Other angles cover different slices of the same subsystem. Don't try to cover everything. Focus on your assigned angle and go deep.
 
 ## Question
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "principles"
+policy:
+  allow_implicit_invocation: true

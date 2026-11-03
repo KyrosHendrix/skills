@@ -1,0 +1,2 @@
+# Keep LF in the repo and the working tree so diffs against upstream compare lines, not line endings
+* text=auto eol=lf
