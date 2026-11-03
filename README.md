@@ -1,14 +1,39 @@
-# Agent skills for Claude Code, Codex, and Cursor
+# let him cook
 
-Lauren Tan's [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), rebuilt to run inline in one context on one plan.
+**Agent skills for Claude Code, Codex, and Cursor.** [Lauren Tan](https://github.com/poteto)'s [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), rebuilt so one agent does the work in one context, on the plan you already have.
 
-- **Inline by default.** A skill does every step itself. It spawns subagents only when you ask in the session, so a task doesn't multiply its token cost by fanning out.
-- **Works in any harness.** No model slugs or vendor setup. [HARNESSES.md](HARNESSES.md) maps each tool, model role, and path to Claude Code, Codex, and Cursor.
-- **Routes itself.** [let-him-cook](let-him-cook/SKILL.md) matches a coding task to a recipe (investigation, bug fix, feature, refactoring, or perf issue) and runs the right skills in order.
+You describe the task. `let-him-cook` picks the recipe, runs the right skills in order, and proves the result before calling it done.
+
+```
+/let-him-cook the checkout button double-charges on slow networks
+```
+
+```mermaid
+flowchart LR
+    T[Your task] --> R{let-him-cook}
+    R -->|question| I[Investigation]
+    R -->|defect| B[Bug fix]
+    R -->|new behavior| F[Feature]
+    R -->|reshape| X[Refactoring]
+    R -->|slow| P[Perf issue]
+    B --> B1[reproduce] --> B2[how + why] --> B3[failing test] --> B4[root-cause fix] --> B5[rerun + blast-radius]
+```
+
+## Why this exists
+
+I don't have unlimited tokens.
+
+[pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) is great, but it fans work out to subagents, and each one re-reads the same context, so the cost multiplies fast on a single plan. This keeps the skills and has one agent do every step itself, with subagents only when you ask.
+
+## The house rules
+
+1. **One agent does the cooking.** Every skill runs inline. Subagents only show up when you ask for them, so a task never quietly multiplies its token bill.
+2. **Proof beats opinion.** A fix starts from a repro, a feature ends on the real surface, and a review finding only counts when a run proves it.
+3. **No vendor lock.** No model slugs, no setup step. [HARNESSES.md](HARNESSES.md) maps every tool, model role, and path to Claude Code, Codex, and Cursor.
 
 ## Install
 
-Clone into the user skill folder for your harness. Use an empty folder, or back up the one you have first.
+Clone into your harness's skill folder. Use an empty folder, or back up the one you have.
 
 | Harness | Command |
 | --- | --- |
@@ -16,61 +41,82 @@ Clone into the user skill folder for your harness. Use an empty folder, or back 
 | Codex | `git clone https://github.com/KyrosHendrix/skills ~/.agents/skills` |
 | Cursor | `git clone https://github.com/KyrosHendrix/skills ~/.cursor/skills` |
 
-To take a single skill, copy its folder. The pstack skills also link to `HARNESSES.md` and the `principles` folder, so copy those with it.
+Want just one skill? Copy its folder, plus `HARNESSES.md` and `principles/`, which most skills link to.
 
-Most pstack skills run only when you type their slash command, such as `/how` or `/why`. Start a coding task with `/let-him-cook`, or let it load on its own, and it picks the rest.
+Most skills run only when you type their slash command, like `/how` or `/why`. You don't need to remember them. Start with `/let-him-cook`, or let it load on its own when a coding task begins.
 
-## From Lauren Tan's pstack
+## The menu
 
-These 30 skills are adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan, MIT licensed. [UPSTREAM.md](UPSTREAM.md) lists what changed from pstack and how to merge pstack updates.
+### Start here
 
-| Skill | Use it to |
+| Skill | What it does |
 | --- | --- |
-| [architect](architect/SKILL.md) | Sketch types, signatures, and modules before writing code, then fill in against the sketch. |
-| [arena](arena/SKILL.md) | Write competing candidates for one task, pick a base, and graft in the best parts of the rest. |
-| [benchmark-checklist](benchmark-checklist/SKILL.md) | Vet a performance measurement before reporting or acting on it. |
-| [blast-radius](blast-radius/SKILL.md) | Find what a change could break outside the diff, and prove it's safe by running code. |
-| [bro](bro/SKILL.md) | Restate the last message in plain language. |
-| [correct](correct/SKILL.md) | Find mistakes agents keep repeating in a repo and make each one impossible. |
-| [create-formal-verification-skill](create-formal-verification-skill/SKILL.md) | Generate a project skill that formally verifies the riskiest code. |
-| [create-verification-skill](create-verification-skill/SKILL.md) | Generate a project skill that drives the app the way a user does. |
-| [figure-it-out](figure-it-out/SKILL.md) | Design an auditable playbook for a large migration or multi-part change. |
-| [how](how/SKILL.md) | Explain how code works, and where new code should live. |
-| [in-your-own-words](in-your-own-words/SKILL.md) | Restate the user's goals and problem to check understanding. |
-| [interrogate](interrogate/SKILL.md) | Review code or a design adversarially to find blind spots. |
-| [ketchup](ketchup/SKILL.md) | Catch the user up on what changed in the chat since their last message. |
-| [ketchup-video](ketchup-video/SKILL.md) | Same as ketchup, as a short subtitled slide video. |
-| [maintain-formal-verification-skill](maintain-formal-verification-skill/SKILL.md) | Bring formal verification back in line after the code changes. |
-| [maintain-verification-skill](maintain-verification-skill/SKILL.md) | Keep a project's verification skill and feature map accurate. |
-| [no-comments](no-comments/SKILL.md) | Run a Comment Sicko pass and fix the comments it flags. |
-| [principles](principles/SKILL.md) | Engineering principles, one file each. pstack ships these as 24 separate `principle-*` skills. |
-| [recall](recall/SKILL.md) | Rebuild recent working context from chat history and shared records. |
-| [reflect](reflect/SKILL.md) | Review the transcript for learnings and turn each into an edit to a skill. |
-| [sharpen](sharpen/SKILL.md) | Make a task deeper, not bigger, and rewrite the prompt. |
-| [show-me-your-work](show-me-your-work/SKILL.md) | Keep a TSV decision log for long or unattended work. |
-| [statechart](statechart/SKILL.md) | Check a TLA+ model of a stateful system and draw it as a Mermaid statechart. |
-| [swarm](swarm/SKILL.md) | Fan out parallel workers and return one report. The only skill that always spawns subagents, so it runs only when invoked. |
-| [tdd](tdd/SKILL.md) | Write the failing test first, when asked or when the test target is cheap and obvious. |
-| [teach](teach/SKILL.md) | Explain a body of work plainly, using `how` and `why`. |
-| [technical-writing](technical-writing/SKILL.md) | Write or review docs, RFCs, READMEs, and PR text to a layered style standard. |
-| [typescript-best-practices](typescript-best-practices/SKILL.md) | Follow TypeScript practices when reading or editing `.ts` and `.tsx` files. |
-| [unslop](unslop/SKILL.md) | Cut AI tells from writing. |
-| [why](why/SKILL.md) | Find the reasons behind code, decisions, and regressions across every available source. |
+| [let-him-cook](let-him-cook/SKILL.md) | Matches the task to a recipe and runs the skills below in order. |
 
-pstack skills not included here: `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. UPSTREAM.md gives the reasons.
+### Understand it
 
-## Other
+| Skill | What it does |
+| --- | --- |
+| [how](how/SKILL.md) | Explains how code works, and where new code should live. |
+| [why](why/SKILL.md) | Digs up the reasons behind code, decisions, and regressions from every source it can reach. |
+| [teach](teach/SKILL.md) | Runs `how` and `why`, then explains it all plainly. |
+| [recall](recall/SKILL.md) | Rebuilds your recent context from chat history and shared records. |
+| [ketchup](ketchup/SKILL.md) | Catches you up on what changed since your last message. |
+| [ketchup-video](ketchup-video/SKILL.md) | Same, as a short subtitled slide video. |
+| [bro](bro/SKILL.md) | Restates the last message with no jargon. |
+| [in-your-own-words](in-your-own-words/SKILL.md) | Restates your goal to check the agent actually gets it. |
 
-| Skill | Use it to | Source |
-| --- | --- | --- |
-| [let-him-cook](let-him-cook/SKILL.md) | Pick the recipe for a coding task and run its skills in order, inline. | Kyros, from the ideas in pstack's `poteto-mode` playbooks, without the subagent delegation. |
-| [pr](pr/SKILL.md) | Write a PR title and body. | Kyros combined two PR skills: Matt Pocock's [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) and the title naming rules from Theo's [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
+### Design it
 
-## Branches
+| Skill | What it does |
+| --- | --- |
+| [architect](architect/SKILL.md) | Sketches types, signatures, and modules before any code, then builds against the sketch. |
+| [arena](arena/SKILL.md) | Writes competing drafts, picks a base, and grafts in the best parts of the rest. |
+| [figure-it-out](figure-it-out/SKILL.md) | Designs a playbook for big migrations and multi-part changes. |
+| [sharpen](sharpen/SKILL.md) | Makes a task deeper, not bigger, and rewrites the prompt. |
+| [principles](principles/SKILL.md) | 24 engineering principles, each with the moment it applies. |
 
-- `main` holds the skills.
-- `upstream` is pstack exactly as published. Only new pstack snapshots go there. See [UPSTREAM.md](UPSTREAM.md).
+### Prove it
+
+| Skill | What it does |
+| --- | --- |
+| [tdd](tdd/SKILL.md) | Writes the failing test first when the target is cheap and obvious. |
+| [blast-radius](blast-radius/SKILL.md) | Finds what a change could break outside the diff, and runs code to prove it's safe. |
+| [benchmark-checklist](benchmark-checklist/SKILL.md) | Vets a perf number before anyone trusts it. |
+| [create-verification-skill](create-verification-skill/SKILL.md) | Generates a project skill that drives your app like a user. |
+| [maintain-verification-skill](maintain-verification-skill/SKILL.md) | Keeps that skill honest as the app changes. |
+| [create-formal-verification-skill](create-formal-verification-skill/SKILL.md) | Generates formal verification for the code where bugs cost the most. |
+| [maintain-formal-verification-skill](maintain-formal-verification-skill/SKILL.md) | Brings the formal specs back in line after code changes. |
+| [statechart](statechart/SKILL.md) | Checks a TLA+ model and draws it as a Mermaid statechart. |
+| [interrogate](interrogate/SKILL.md) | Attacks a change, keeping only the findings a run proves. |
+
+### Ship it clean
+
+| Skill | What it does |
+| --- | --- |
+| [pr](pr/SKILL.md) | Writes the PR title and body. |
+| [no-comments](no-comments/SKILL.md) | Cuts comments that don't earn their place. |
+| [unslop](unslop/SKILL.md) | Cuts AI tells from any writing. |
+| [technical-writing](technical-writing/SKILL.md) | Holds docs, READMEs, and commit messages to a real style standard. |
+| [typescript-best-practices](typescript-best-practices/SKILL.md) | Keeps `.ts` and `.tsx` code typed properly. |
+| [correct](correct/SKILL.md) | Finds mistakes agents keep repeating and makes them impossible. |
+| [reflect](reflect/SKILL.md) | Turns lessons from a session into edits to the skills. |
+| [show-me-your-work](show-me-your-work/SKILL.md) | Keeps a decision log for long or unattended runs. |
+
+### Only when you ask
+
+| Skill | What it does |
+| --- | --- |
+| [swarm](swarm/SKILL.md) | Fans out parallel workers and returns one report. The one skill that always spawns subagents, so it never runs on its own. |
+
+## Where it came from
+
+Every skill except `let-him-cook` and `pr` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
+
+- `let-him-cook` is new here, built from the ideas in [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills)'s `poteto-mode` playbooks, minus the delegation.
+- `pr` combines [Matt Pocock](https://github.com/mattpocock)'s [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr).
+- Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
 
 ## License
 
-MIT. The root [LICENSE](LICENSE) covers this repo's own work. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) holds the MIT notices for Lauren Tan, Matt Pocock, and Theo Browne, and lists the folders each one covers.
+MIT. The root [LICENSE](LICENSE) covers this repo's own work. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) holds the notices for [Lauren Tan](https://github.com/poteto), [Matt Pocock](https://github.com/mattpocock), and [Theo Browne](https://github.com/t3dotgg).

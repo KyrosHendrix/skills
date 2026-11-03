@@ -55,4 +55,4 @@ Some steps assume a feature your harness lacks, such as a review bot or a cloud 
 
 ## Origin
 
-Adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack) by Lauren Tan, MIT licensed. See `LICENSE`.
+Adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack) by [Lauren Tan](https://github.com/poteto), MIT licensed. See `LICENSE`.

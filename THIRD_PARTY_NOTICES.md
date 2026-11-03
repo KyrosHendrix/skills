@@ -2,7 +2,7 @@
 
 This repo includes work from the projects below, each under the MIT License. Each notice covers the folders listed under it. Everything else is covered by the root [LICENSE](LICENSE).
 
-## pstack by Lauren Tan
+## pstack by [Lauren Tan](https://github.com/poteto)
 
 Source: https://github.com/cursor/plugins/tree/main/pstack
 
@@ -32,7 +32,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## skills by Matt Pocock
+## skills by [Matt Pocock](https://github.com/mattpocock)
 
 Source: https://github.com/mattpocock/skills
 
@@ -62,7 +62,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## tstack by Theo Browne
+## tstack by [Theo Browne](https://github.com/t3dotgg)
 
 Source: https://github.com/t3dotgg/tstack
 
