@@ -29,12 +29,14 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | `automate-me` | Dropped | Not wanted. |
 | `make-bot-ui` | Dropped | Not wanted. |
 | `poteto-help` | Dropped | Help for pstack's Cursor setup. |
-| `poteto-mode` | Dropped | Lauren's personal working style. `~/.claude/CLAUDE.md` covers this. |
+| `poteto-mode` | Dropped | Lauren's personal working style, built on delegating to subagents. `~/.claude/CLAUDE.md` covers the style. `let-him-cook` replaces its playbooks and triggers. |
 | `setup-pstack` | Dropped | Writes Cursor's per-role model rule. `HARNESSES.md` replaces it. |
 | `pstack/agents/comment-sicko.md` | `no-comments/references/comment-sicko.md` | Read by `no-comments` instead of loaded as a Cursor agent. |
 | `pstack/agents/poteto-agent.md` | Not ported | Cursor agent for `poteto-mode`. |
 | (none) | `<skill>/agents/openai.yaml` | Codex skill metadata, added locally. |
 | (none) | `HARNESSES.md`, `UPSTREAM.md` | Harness map and this file. |
+| (none) | `let-him-cook/` | Local skill, not tracked from pstack. Routes a task to the skills it needs, inline. Written from the ideas in `poteto-mode`'s playbooks and Non-negotiables, with every delegation step removed. |
+| `disable-model-invocation: true` on every skill | Removed from `benchmark-checklist`, `blast-radius`, `tdd`, `technical-writing`, `typescript-best-practices`, `unslop`, and `principles` | These load on their own when a task matches. Keep the flag off when merging upstream edits to them. |
 
 Folders that don't come from pstack: `pr` (combined from Matt Pocock's `pr` and Theo's `file-pr`) and the 16 skills from [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills). README.md lists which are which. This file tracks pstack only.
 

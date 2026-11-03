@@ -70,6 +70,7 @@ These 16 skills come from [emilkowalski/skills](https://github.com/emilkowalski/
 
 | Skill | Use it to | Source |
 | --- | --- | --- |
+| [let-him-cook](let-him-cook/SKILL.md) | Pick the recipe for a coding task and run its skills in order, inline. | Kyros, from the ideas in pstack's `poteto-mode` playbooks, without the subagent delegation. |
 | [pr](pr/SKILL.md) | Write a PR title and body. | Kyros combined two PR skills: Matt Pocock's [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) and the title naming rules from Theo's [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
 
 ## Branches

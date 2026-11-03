@@ -1,0 +1,4 @@
+interface:
+  display_name: "let-him-cook"
+policy:
+  allow_implicit_invocation: true
