@@ -1,6 +1,6 @@
 # Agent skills for Claude Code, Codex, and Cursor
 
-Lauren Tan's [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), rebuilt to run inline in one context on one plan, plus motion and UI skills from Emil Kowalski.
+Lauren Tan's [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), rebuilt to run inline in one context on one plan.
 
 - **Inline by default.** A skill does every step itself. It spawns subagents only when you ask in the session, so a task doesn't multiply its token cost by fanning out.
 - **Works in any harness.** No model slugs or vendor setup. [HARNESSES.md](HARNESSES.md) maps each tool, model role, and path to Claude Code, Codex, and Cursor.
@@ -59,35 +59,14 @@ These 30 skills are adapted from [pstack](https://github.com/cursor/plugins/tree
 
 pstack skills not included here: `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. UPSTREAM.md gives the reasons.
 
-## From Emil Kowalski's skills
-
-These 16 skills come from [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills) by Emil Kowalski, MIT licensed. They cover motion, UI polish, and frontend craft.
-
-| Skill | Use it to |
-| --- | --- |
-| [animate](animate/SKILL.md) | Build a web animation, deciding first whether it should animate at all. |
-| [animate-expo](animate-expo/SKILL.md) | Build animations and gestures in React Native and Expo. |
-| [animation-performance](animation-performance/SKILL.md) | Keep web animations inside the frame budget and find dropped frames. |
-| [animation-vocabulary](animation-vocabulary/SKILL.md) | Name a motion effect from a vague description. |
-| [apple-design](apple-design/SKILL.md) | Apply Apple's interface and motion design to the web. |
-| [ask-sonner](ask-sonner/SKILL.md) | Set up and debug Sonner toasts in React. |
-| [break-ui](break-ui/SKILL.md) | Stress-test a UI with worst-case data and report what breaks. |
-| [emil-design-eng](emil-design-eng/SKILL.md) | Apply Emil Kowalski's UI polish and component design standards. |
-| [find-animation-opportunities](find-animation-opportunities/SKILL.md) | Find places that should animate, without changing code. |
-| [improve-animations](improve-animations/SKILL.md) | Audit a codebase's motion and write implementation plans. |
-| [mobile-native](mobile-native/SKILL.md) | Make a web app feel native on a phone. |
-| [pick-ui-library](pick-ui-library/SKILL.md) | Pick a frontend library for a task from a curated list. |
-| [prototype](prototype/SKILL.md) | Build several different versions of a UI piece behind a live picker. |
-| [remove-animations](remove-animations/SKILL.md) | Remove motion an interface doesn't need. |
-| [review-animations](review-animations/SKILL.md) | Review animation code against a high craft bar. |
-| [write-swift](write-swift/SKILL.md) | Write modern Swift, including Swift 6 concurrency. |
-
 ## Other
 
 | Skill | Use it to | Source |
 | --- | --- | --- |
 | [let-him-cook](let-him-cook/SKILL.md) | Pick the recipe for a coding task and run its skills in order, inline. | Kyros, from the ideas in pstack's `poteto-mode` playbooks, without the subagent delegation. |
 | [pr](pr/SKILL.md) | Write a PR title and body. | Kyros combined two PR skills: Matt Pocock's [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) and the title naming rules from Theo's [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
+
+Pairs well with [emilkowalski/skills](https://github.com/emilkowalski/skills) for motion and UI work. Install it alongside, and `let-him-cook` routes animation and UI tasks to it.
 
 ## Branches
 
@@ -96,4 +75,4 @@ These 16 skills come from [emilkowalski/skills](https://github.com/emilkowalski/
 
 ## License
 
-MIT. The root [LICENSE](LICENSE) covers this repo's own work. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) holds the MIT notices for Lauren Tan, Emil Kowalski, Matt Pocock, and Theo Browne, and lists the folders each one covers.
+MIT. The root [LICENSE](LICENSE) covers this repo's own work. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) holds the MIT notices for Lauren Tan, Matt Pocock, and Theo Browne, and lists the folders each one covers.

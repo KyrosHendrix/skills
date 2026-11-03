@@ -93,8 +93,8 @@ The structure changes. The behavior does not. A real bug or missing feature foun
 | Long, unattended, or multi-phase work | [show-me-your-work](../show-me-your-work/SKILL.md) |
 | Agents keep making the same mistake in this repo | [correct](../correct/SKILL.md) |
 | Code with comments, before review | [no-comments](../no-comments/SKILL.md) |
-| Animation or motion | [animate](../animate/SKILL.md), or [review-animations](../review-animations/SKILL.md) for existing motion |
-| UI that has to hold up to real data | [break-ui](../break-ui/SKILL.md) |
+| Animation or motion | `animate`, or `review-animations` for existing motion, if [emilkowalski/skills](https://github.com/emilkowalski/skills) is installed |
+| UI that has to hold up to real data | `break-ui`, if emilkowalski/skills is installed |
 | Docs, READMEs, or commit messages | [technical-writing](../technical-writing/SKILL.md) |
 | A PR title or body | [pr](../pr/SKILL.md) |
 | Parallel workers or competing drafts | [swarm](../swarm/SKILL.md) or [arena](../arena/SKILL.md), only when the user asks |
