@@ -39,7 +39,7 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | (none) | `let-him-cook/` | Local skill, not tracked from pstack. Routes a task to the skills it needs, inline. Written from the ideas in `poteto-mode`'s playbooks and Non-negotiables, with every delegation step removed. |
 | `disable-model-invocation: true` on every skill | Removed from `benchmark-checklist`, `blast-radius`, `tdd`, `technical-writing`, `typescript-best-practices`, `unslop`, and `principles` | These load on their own when a task matches. Keep the flag off when merging upstream edits to them. |
 
-Folders that don't come from pstack: `pr` (combined from Matt Pocock's `pr` and Theo's `file-pr`) and `let-him-cook`. Emil Kowalski's skills are installed locally from [emilkowalski/skills](https://github.com/emilkowalski/skills) but not tracked, per `.gitignore`. This file tracks pstack only.
+Folders that don't come from pstack: `pr` (combined from Matt Pocock's `pr` and Theo's `file-pr`) and `let-him-cook`. This file tracks pstack only.
 
 ## Local tweaks
 
