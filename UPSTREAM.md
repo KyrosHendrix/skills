@@ -1,6 +1,6 @@
 # Upstream
 
-Most skills here are a port of [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan (MIT, see `LICENSE`). This file records what the port changed, so an upstream update can be merged without losing local edits.
+Most skills here are a port of [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan (MIT, see `THIRD_PARTY_NOTICES.md`). This file records what the port changed, so an upstream update can be merged without losing local edits.
 
 ## Base
 
@@ -35,6 +35,7 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | `pstack/agents/poteto-agent.md` | Not ported | Cursor agent for `poteto-mode`. |
 | (none) | `<skill>/agents/openai.yaml` | Codex skill metadata, added locally. |
 | (none) | `HARNESSES.md`, `UPSTREAM.md` | Harness map and this file. |
+| `LICENSE` (Lauren Tan) | `LICENSE` (Kyros Abas), with Lauren's notice in `THIRD_PARTY_NOTICES.md` | The root license covers this repo's own work. If a merge changes `LICENSE`, keep `main`'s version and copy any change to Lauren's notice into `THIRD_PARTY_NOTICES.md`. |
 | (none) | `let-him-cook/` | Local skill, not tracked from pstack. Routes a task to the skills it needs, inline. Written from the ideas in `poteto-mode`'s playbooks and Non-negotiables, with every delegation step removed. |
 | `disable-model-invocation: true` on every skill | Removed from `benchmark-checklist`, `blast-radius`, `tdd`, `technical-writing`, `typescript-best-practices`, `unslop`, and `principles` | These load on their own when a task matches. Keep the flag off when merging upstream edits to them. |
 

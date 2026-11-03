@@ -1,12 +1,28 @@
-# skills
+# Agent skills for Claude Code, Codex, and Cursor
 
-Kyros's agent skills. They load from `~/.claude/skills` in Claude Code, and a mirror in `~/.agents/skills` serves other harnesses.
+Lauren Tan's [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), rebuilt to run inline in one context on one plan, plus motion and UI skills from Emil Kowalski.
 
-Every skill runs inline. A skill spawns subagents only when the user asks for it in the session. [HARNESSES.md](HARNESSES.md) maps tool, model, and path terms to Claude Code, Codex, and Cursor.
+- **Inline by default.** A skill does every step itself. It spawns subagents only when you ask in the session, so a task doesn't multiply its token cost by fanning out.
+- **Works in any harness.** No model slugs or vendor setup. [HARNESSES.md](HARNESSES.md) maps each tool, model role, and path to Claude Code, Codex, and Cursor.
+- **Routes itself.** [let-him-cook](let-him-cook/SKILL.md) matches a coding task to a recipe (investigation, bug fix, feature, refactoring, or perf issue) and runs the right skills in order.
+
+## Install
+
+Clone into the user skill folder for your harness. Use an empty folder, or back up the one you have first.
+
+| Harness | Command |
+| --- | --- |
+| Claude Code | `git clone https://github.com/KyrosHendrix/skills ~/.claude/skills` |
+| Codex | `git clone https://github.com/KyrosHendrix/skills ~/.agents/skills` |
+| Cursor | `git clone https://github.com/KyrosHendrix/skills ~/.cursor/skills` |
+
+To take a single skill, copy its folder. The pstack skills also link to `HARNESSES.md` and the `principles` folder, so copy those with it.
+
+Most pstack skills run only when you type their slash command, such as `/how` or `/why`. Start a coding task with `/let-him-cook`, or let it load on its own, and it picks the rest.
 
 ## From Lauren Tan's pstack
 
-These 30 skills are adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan, MIT licensed (see [LICENSE](LICENSE)). [UPSTREAM.md](UPSTREAM.md) lists what changed from pstack and how to merge pstack updates.
+These 30 skills are adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by Lauren Tan, MIT licensed. [UPSTREAM.md](UPSTREAM.md) lists what changed from pstack and how to merge pstack updates.
 
 | Skill | Use it to |
 | --- | --- |
@@ -75,13 +91,9 @@ These 16 skills come from [emilkowalski/skills](https://github.com/emilkowalski/
 
 ## Branches
 
-- `main` is this folder.
-- `upstream` is pstack exactly as published. Only new pstack snapshots go there. See UPSTREAM.md.
+- `main` holds the skills.
+- `upstream` is pstack exactly as published. Only new pstack snapshots go there. See [UPSTREAM.md](UPSTREAM.md).
 
-## Keeping the mirror in sync
+## License
 
-`~/.claude/skills` is the source. After any change, mirror it to `~/.agents/skills`. This deletes files in the copy that no longer exist here:
-
-```powershell
-robocopy "$env:USERPROFILE\.claude\skills" "$env:USERPROFILE\.agents\skills" /MIR /XD .git synced .trash
-```
+MIT. The root [LICENSE](LICENSE) covers this repo's own work. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) holds the MIT notices for Lauren Tan, Emil Kowalski, Matt Pocock, and Theo Browne, and lists the folders each one covers.
