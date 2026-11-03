@@ -66,11 +66,11 @@ These 16 skills come from [emilkowalski/skills](https://github.com/emilkowalski/
 | [review-animations](review-animations/SKILL.md) | Review animation code against a high craft bar. |
 | [write-swift](write-swift/SKILL.md) | Write modern Swift, including Swift 6 concurrency. |
 
-## By Kyros
+## Other
 
-| Skill | Use it to |
-| --- | --- |
-| [pr](pr/SKILL.md) | Write a PR title and body. |
+| Skill | Use it to | Source |
+| --- | --- | --- |
+| [pr](pr/SKILL.md) | Write a PR title and body. | Kyros combined two PR skills: Matt Pocock's [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) and the title naming rules from Theo's [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
 
 ## Branches
 

@@ -36,7 +36,7 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | (none) | `<skill>/agents/openai.yaml` | Codex skill metadata, added locally. |
 | (none) | `HARNESSES.md`, `UPSTREAM.md` | Harness map and this file. |
 
-Folders that don't come from pstack: `pr` (written by Kyros) and the 16 skills from [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills). README.md lists which are which. This file tracks pstack only.
+Folders that don't come from pstack: `pr` (combined from Matt Pocock's `pr` and Theo's `file-pr`) and the 16 skills from [emilkowalski/skills](https://github.com/emilkowalski/skills/tree/main/skills). README.md lists which are which. This file tracks pstack only.
 
 ## Local tweaks
 
