@@ -8,6 +8,7 @@ Most skills here are a port of [pstack](https://github.com/cursor/plugins/tree/m
 | --- | --- |
 | Upstream repo | `https://github.com/cursor/plugins`, path `pstack/` |
 | Last synced commit | `bf0c7cd` (2026-11-15) |
+| On `upstream`, not yet merged | `2f87c85` (2026-11-16) |
 | Git branch holding upstream as published | `upstream` |
 | Git branch holding this folder | `main` |
 
@@ -32,6 +33,7 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | `poteto-help` | Dropped | Help for pstack's Cursor setup. |
 | `poteto-mode` | Dropped | [Lauren](https://github.com/poteto)'s personal working style, built on delegating to subagents. `~/.claude/CLAUDE.md` covers the style. `let-him-cook` replaces its playbooks and triggers. |
 | `setup-pstack` | Dropped | Writes Cursor's per-role model rule. `HARNESSES.md` replaces it. |
+| `statechart` | Dropped | Not wanted. An upstream edit to it shows up as a modify/delete conflict. `git rm` it again. |
 | `pstack/agents/comment-sicko.md` | `no-comments/references/comment-sicko.md` | Read by `no-comments` instead of loaded as a Cursor agent. |
 | `pstack/agents/poteto-agent.md` | Not ported | Cursor agent for `poteto-mode`. |
 | (none) | `<skill>/agents/openai.yaml` | Codex skill metadata, added locally. |
@@ -64,7 +66,7 @@ git -C $W/plugins log -1 --format='%h %cd'
 If the commit is newer than "Last synced commit", put the snapshot on `upstream` from a separate worktree. This keeps the live skills folder untouched until the merge.
 
 ```bash
-cd ~/.claude/skills
+cd ~/.claude/skills   # or ~/.agents/skills
 git worktree add $W/up upstream
 git -C $W/up rm -rq . && cp -r $W/plugins/pstack/skills/. $W/plugins/pstack/LICENSE $W/up/
 git -C $W/up add -A && git -C $W/up commit -m "chore(upstream): import pstack <sha>"
@@ -79,12 +81,14 @@ When resolving conflicts:
 - A modify/delete conflict on a dropped skill means upstream edited it. Read the change, then `git rm` it again unless you want it back.
 - A new upstream skill arrives as a new folder. Apply the rules above before keeping it, and add it to the tables here.
 
-Finish by updating "Last synced commit" in this file and committing.
+Finish by updating "Last synced commit" in this file, committing, and pushing both branches with `git push origin main upstream`. Then update the other clone (see below).
 
-## Second copy
+## Two clones
 
-`~/.claude/skills` is the source. `~/.agents/skills` is a copy for other harnesses. After a merge or tweak, mirror it (this deletes files in the copy that no longer exist here):
+`~/.claude/skills` (Claude Code) and `~/.agents/skills` (other harnesses) are separate clones of the same GitHub repo. Work in one, push both branches, then update the other before you change anything there:
 
-```powershell
-robocopy "$env:USERPROFILE\.claude\skills" "$env:USERPROFILE\.agents\skills" /MIR /XD .git synced .trash
+```bash
+cd ~/.claude/skills   # the clone you didn't work in
+git pull --ff-only
+git fetch origin upstream:upstream
 ```
