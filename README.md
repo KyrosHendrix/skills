@@ -70,7 +70,7 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 
 | Skill | What it does |
 | --- | --- |
-| [architect](architect/SKILL.md) | Sketches types, signatures, and modules before any code, then builds against the sketch. |
+| [architect](architect/SKILL.md) | Sketches two shapes for a change before any code and picks the one with the clearest ownership. |
 | [arena](arena/SKILL.md) | Writes competing drafts, picks a base, and grafts in the best parts of the rest. |
 | [figure-it-out](figure-it-out/SKILL.md) | Designs a playbook for big migrations and multi-part changes. |
 | [sharpen](sharpen/SKILL.md) | Makes a task deeper, not bigger, and rewrites the prompt. |

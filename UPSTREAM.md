@@ -7,8 +7,7 @@ Most skills here are a port of [pstack](https://github.com/cursor/plugins/tree/m
 | Field | Value |
 | --- | --- |
 | Upstream repo | `https://github.com/cursor/plugins`, path `pstack/` |
-| Last synced commit | `bf0c7cd` (2026-11-15) |
-| On `upstream`, not yet merged | `2f87c85` (2026-11-16) |
+| Last synced commit | `2f87c85` (2026-11-16) |
 | Git branch holding upstream as published | `upstream` |
 | Git branch holding this folder | `main` |
 
