@@ -12,7 +12,7 @@ When the task matches no playbook, design one. The deliverable before any code i
 
 ## Start
 
-Open a todo list whose first item is to read the index of the [principles](../principles/SKILL.md) skill. Then add the phases below as todos.
+Open a todo list with the phases below as todos.
 
 ## Phase A: Frame
 

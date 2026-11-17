@@ -7,7 +7,7 @@ Most skills here are a port of [pstack](https://github.com/cursor/plugins/tree/m
 | Field | Value |
 | --- | --- |
 | Upstream repo | `https://github.com/cursor/plugins`, path `pstack/` |
-| Last synced commit | `ae5650f` (2026-10-31) |
+| Last synced commit | `bf0c7cd` (2026-11-15) |
 | Git branch holding upstream as published | `upstream` |
 | Git branch holding this folder | `main` |
 
@@ -25,7 +25,8 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 
 | Upstream | Here | Why |
 | --- | --- | --- |
-| 24 `principle-*/SKILL.md` skills | One `principles/` skill, one `<name>.md` per principle | Fewer entries in the skill list. Upstream edits to `principle-<name>/SKILL.md` go into `principles/<name>.md` by hand. |
+| 24 `principle-*/SKILL.md` skills | A `principles/` reference folder, one `<name>.md` per principle, with no index and no skill entry | Skills link the file they need at the step that needs it, so nothing loads on its own. Upstream edits to `principle-<name>/SKILL.md` go into `principles/<name>.md` by hand. |
+| `principle-build-the-lever`, `principle-exhaust-the-design-space`, `principle-experience-first`, `principle-explain-the-number`, `principle-guard-the-context-window` | Dropped | Each repeats another skill or the default behavior, or no step links to it. An upstream edit to one shows up as a modify/delete conflict. `git rm` it again. |
 | `automate-me` | Dropped | Not wanted. |
 | `make-bot-ui` | Dropped | Not wanted. |
 | `poteto-help` | Dropped | Help for pstack's Cursor setup. |
@@ -37,7 +38,7 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | (none) | `HARNESSES.md`, `UPSTREAM.md` | Harness map and this file. |
 | `LICENSE` ([Lauren Tan](https://github.com/poteto)) | `LICENSE` ([Kyros Abas](https://github.com/KyrosHendrix)), with [Lauren](https://github.com/poteto)'s notice in `THIRD_PARTY_NOTICES.md` | The root license covers this repo's own work. If a merge changes `LICENSE`, keep `main`'s version and copy any change to Lauren's notice into `THIRD_PARTY_NOTICES.md`. |
 | (none) | `let-him-cook/` | Local skill, not tracked from pstack. Routes a task to the skills it needs, inline. Written from the ideas in `poteto-mode`'s playbooks and Non-negotiables, with every delegation step removed. |
-| `disable-model-invocation: true` on every skill | Removed from `benchmark-checklist`, `blast-radius`, `tdd`, `technical-writing`, `typescript-best-practices`, `unslop`, and `principles` | These load on their own when a task matches. Keep the flag off when merging upstream edits to them. |
+| `disable-model-invocation: true` on every skill | Removed from `benchmark-checklist`, `blast-radius`, `how`, `interrogate`, `tdd`, `teach`, `technical-writing`, `typescript-best-practices`, `unslop`, and `why` | These load on their own when a task matches. Keep the flag off when merging upstream edits to them. |
 
 Folders that don't come from pstack: `pr` (combined from [Matt Pocock](https://github.com/mattpocock)'s `pr` and [Theo](https://github.com/t3dotgg)'s `file-pr`) and `let-him-cook`. This file tracks pstack only.
 
@@ -45,9 +46,9 @@ Folders that don't come from pstack: `pr` (combined from [Matt Pocock](https://g
 
 One line per skill changed beyond the rules above, newest first.
 
+- `recall`: searches each source of the shared record one at a time instead of spawning one investigator per source.
 - `teach`: runs `how` and `why` one after the other instead of in parallel.
 - `arena`: writes candidates one at a time and skips the cross-judge when inline.
-- `why`: searches each source one at a time instead of spawning one investigator per source.
 
 ## Checking for an upstream update
 
@@ -74,7 +75,7 @@ git merge upstream
 
 When resolving conflicts:
 
-- Git tracks 21 of the 24 principles as renames of `principle-<name>/SKILL.md` to `principles/<name>.md`, so it usually carries upstream edits across on its own. Check the result anyway. The other three (`encode-lessons-in-structure`, `exhaust-the-design-space`, `guard-the-context-window`) changed too much for git to pair them, so an upstream edit to one shows up as a modify/delete conflict. Port the edit into `principles/<name>.md` by hand, then `git rm` the upstream path.
+- Git tracks 18 of the 19 principles as renames of `principle-<name>/SKILL.md` to `principles/<name>.md`, so it usually carries upstream edits across on its own. Check the result anyway. The other one (`encode-lessons-in-structure`) changed too much for git to pair it, so an upstream edit to it shows up as a modify/delete conflict. Port the edit into `principles/<name>.md` by hand, then `git rm` the upstream path.
 - A modify/delete conflict on a dropped skill means upstream edited it. Read the change, then `git rm` it again unless you want it back.
 - A new upstream skill arrives as a new folder. Apply the rules above before keeping it, and add it to the tables here.
 

@@ -16,7 +16,7 @@ flowchart LR
     R -->|new behavior| F[Feature]
     R -->|reshape| X[Refactoring]
     R -->|slow| P[Perf issue]
-    B --> B1[reproduce] --> B2[how + why] --> B3[failing test] --> B4[root-cause fix] --> B5[rerun + blast-radius]
+    B --> B1[reproduce] --> B2[trace + why] --> B3[failing test] --> B4[root-cause fix] --> B5[rerun + blast-radius]
 ```
 
 ## Why this exists
@@ -43,7 +43,7 @@ Clone into your harness's skill folder. Use an empty folder, or back up the one 
 
 Want just one skill? Copy its folder, plus `HARNESSES.md` and `principles/`, which most skills link to.
 
-Most skills run only when you type their slash command, like `/how` or `/why`. You don't need to remember them. Start with `/let-him-cook`, or let it load on its own when a coding task begins.
+Most skills run only when you type their slash command, like `/architect` or `/swarm`. You don't need to remember them. Start with `/let-him-cook`, or let it load on its own when a coding task begins.
 
 ## The menu
 
@@ -58,7 +58,7 @@ Most skills run only when you type their slash command, like `/how` or `/why`. Y
 | Skill | What it does |
 | --- | --- |
 | [how](how/SKILL.md) | Explains how code works, and where new code should live. |
-| [why](why/SKILL.md) | Digs up the reasons behind code, decisions, and regressions from every source it can reach. |
+| [why](why/SKILL.md) | Finds the reasons behind code, decisions, and regressions in commits and PR discussions, and looks further when those run thin. |
 | [teach](teach/SKILL.md) | Runs `how` and `why`, then explains it all plainly. |
 | [recall](recall/SKILL.md) | Rebuilds your recent context from chat history and shared records. |
 | [ketchup](ketchup/SKILL.md) | Catches you up on what changed since your last message. |
@@ -74,7 +74,6 @@ Most skills run only when you type their slash command, like `/how` or `/why`. Y
 | [arena](arena/SKILL.md) | Writes competing drafts, picks a base, and grafts in the best parts of the rest. |
 | [figure-it-out](figure-it-out/SKILL.md) | Designs a playbook for big migrations and multi-part changes. |
 | [sharpen](sharpen/SKILL.md) | Makes a task deeper, not bigger, and rewrites the prompt. |
-| [principles](principles/SKILL.md) | 24 engineering principles, each with the moment it applies. |
 
 ### Prove it
 
@@ -87,7 +86,6 @@ Most skills run only when you type their slash command, like `/how` or `/why`. Y
 | [maintain-verification-skill](maintain-verification-skill/SKILL.md) | Keeps that skill honest as the app changes. |
 | [create-formal-verification-skill](create-formal-verification-skill/SKILL.md) | Generates formal verification for the code where bugs cost the most. |
 | [maintain-formal-verification-skill](maintain-formal-verification-skill/SKILL.md) | Brings the formal specs back in line after code changes. |
-| [statechart](statechart/SKILL.md) | Checks a TLA+ model and draws it as a Mermaid statechart. |
 | [interrogate](interrogate/SKILL.md) | Attacks a change, keeping only the findings a run proves. |
 
 ### Ship it clean

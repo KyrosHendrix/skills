@@ -23,8 +23,8 @@ Commit, push, or open a PR only when the user asked for it. The always-loaded in
 
 A question about how or why something works, or which option to pick. Read-only: edit nothing.
 
-1. Run [how](../how/SKILL.md). For a question about motivation or history, also run [why](../why/SKILL.md).
-2. For a choice between options, end with a recommendation and a tradeoffs table.
+1. Trace the code the question is about. For a question about motivation or history, also run [why](../why/SKILL.md).
+2. Answer with an overview, key concepts, how it works, where things live, and gotchas, dropping any that don't apply. For a choice between options, answer with a recommendation and a tradeoffs table instead.
 
 If the answer leads to a code change, stop and offer it. On a yes, switch to Bug fix or Feature.
 
@@ -33,7 +33,7 @@ If the answer leads to a code change, stop and offer it. On a yes, switch to Bug
 ### Bug fix
 
 1. Reproduce it yourself with a focused case on the surface where it was reported.
-2. Find the cause. Run [how](../how/SKILL.md) over the affected code and [why](../why/SKILL.md) for regression history. Rule hypotheses out with runs, not by reading. When two fixes on one premise fail, apply [attack-the-premise](../principles/attack-the-premise.md).
+2. Find the cause. Trace the affected code and run [why](../why/SKILL.md) for regression history. Rule hypotheses out with runs, not by reading. When two fixes on one premise fail, apply [attack-the-premise](../principles/attack-the-premise.md).
 3. If the fix crosses a function boundary, run [architect](../architect/SKILL.md) first.
 4. When the bug has a cheap local test target, write the failing test first per [tdd](../tdd/SKILL.md). Otherwise keep the repro script.
 5. Fix the root cause with the smallest change, per [fix-root-causes](../principles/fix-root-causes.md).
@@ -43,12 +43,12 @@ If the answer leads to a code change, stop and offer it. On a yes, switch to Bug
 
 ### Feature
 
-1. Run [how](../how/SKILL.md) over the code the feature touches.
+1. Trace the code the feature touches.
 2. Name the data shape first, per [model-the-domain](../principles/model-the-domain.md).
 3. If the code crosses a function boundary, run [architect](../architect/SKILL.md).
 4. Build in small units, verifying each before the next, per [sequence-verifiable-units](../principles/sequence-verifiable-units.md).
 5. Verify on the real surface, per [prove-it-works](../principles/prove-it-works.md). Use the project's `verify-<app>` skill when one exists. When none exists and the app has a user surface, offer [create-verification-skill](../create-verification-skill/SKILL.md).
-6. Settle a contested design with a check that runs, not with review opinions. For logic that moves between states (a protocol, sync, payments, a multi-step flow), use [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md) and read its results with [statechart](../statechart/SKILL.md). Run [interrogate](../interrogate/SKILL.md) only when nothing can run yet, and keep only the findings a run proves.
+6. Settle a contested design with a check that runs, not with review opinions. For logic that moves between states (a protocol, sync, payments, a multi-step flow), use [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md). Run [interrogate](../interrogate/SKILL.md) only when nothing can run yet, and keep only the findings a run proves.
 7. For a wide change, run [blast-radius](../blast-radius/SKILL.md).
 
 **Reply:** what you built, what you chose and why, and the decisions still open.
@@ -57,7 +57,7 @@ If the answer leads to a code change, stop and offer it. On a yes, switch to Bug
 
 The structure changes. The behavior does not. A real bug or missing feature found on the way gets split out.
 
-1. Run [how](../how/SKILL.md) to learn the current contract, then pin it with a characterization test or snapshot before moving anything.
+1. Trace the affected code to learn the current contract, then pin it with a characterization test or snapshot before moving anything.
 2. Delete dead code and one-caller wrappers first, per [subtract-before-you-add](../principles/subtract-before-you-add.md).
 3. Name the target shape, per [redesign-from-first-principles](../principles/redesign-from-first-principles.md). If it crosses a function boundary, run [architect](../architect/SKILL.md).
 4. Move in small steps that keep the pin green. For an API change, migrate every caller and delete the old API in the same pass, per [migrate-callers-then-delete-legacy-apis](../principles/migrate-callers-then-delete-legacy-apis.md).
@@ -68,7 +68,7 @@ The structure changes. The behavior does not. A real bug or missing feature foun
 ### Perf issue
 
 1. Measure a baseline. Vet it and every later number with [benchmark-checklist](../benchmark-checklist/SKILL.md).
-2. Run [how](../how/SKILL.md) to ground hypotheses in the code.
+2. Trace the code to ground hypotheses.
 3. Try fixes in this order, cheapest first, and stop at the first that meets the target:
    1. Don't do it.
    2. Do it, but don't do it again.
@@ -97,5 +97,3 @@ The structure changes. The behavior does not. A real bug or missing feature foun
 | A PR title or body | [pr](../pr/SKILL.md) |
 | Parallel workers or competing drafts | [swarm](../swarm/SKILL.md) or [arena](../arena/SKILL.md), only when the user asks |
 | Any reply to the user | [unslop](../unslop/SKILL.md) |
-
-In the reply, name each principle that changed a choice, and the choice it changed.
