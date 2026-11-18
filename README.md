@@ -112,10 +112,15 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 
 Every skill except `let-him-cook`, `pr`, and `sdd` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
 
-- `let-him-cook` is new here, built from the ideas in [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills)'s `poteto-mode` playbooks, minus the delegation.
-- `pr` combines [Matt Pocock](https://github.com/mattpocock)'s [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr).
-- `sdd` is new here, drawing on the spec formats of [GitHub Spec Kit](https://github.com/github/spec-kit) and [Kiro](https://kiro.dev/docs/specs/) (EARS requirements, Given/When/Then scenarios). No text is copied.
-- Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
+Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
+
+### Others
+
+| Skill | Built from |
+| --- | --- |
+| [let-him-cook](let-him-cook/SKILL.md) | The `poteto-mode` playbooks in [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), minus the delegation. |
+| [pr](pr/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
+| [sdd](sdd/SKILL.md) | The spec formats of [GitHub Spec Kit](https://github.com/github/spec-kit) and [Kiro](https://kiro.dev/docs/specs/) (EARS requirements, Given/When/Then scenarios). No text is copied. |
 
 ## License
 
