@@ -39,9 +39,10 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | (none) | `HARNESSES.md`, `UPSTREAM.md` | Harness map and this file. |
 | `LICENSE` ([Lauren Tan](https://github.com/poteto)) | `LICENSE` ([Kyros Abas](https://github.com/KyrosHendrix)), with [Lauren](https://github.com/poteto)'s notice in `THIRD_PARTY_NOTICES.md` | The root license covers this repo's own work. If a merge changes `LICENSE`, keep `main`'s version and copy any change to Lauren's notice into `THIRD_PARTY_NOTICES.md`. |
 | (none) | `let-him-cook/` | Local skill, not tracked from pstack. Routes a task to the skills it needs, inline. Written from the ideas in `poteto-mode`'s playbooks and Non-negotiables, with every delegation step removed. |
+| (none) | `sdd/` | Local skill, not tracked from pstack. Writes one spec file with testable requirements to `docs/specs/`, then stops. |
 | `disable-model-invocation: true` on every skill | Removed from `benchmark-checklist`, `blast-radius`, `how`, `interrogate`, `tdd`, `teach`, `technical-writing`, `typescript-best-practices`, `unslop`, and `why` | These load on their own when a task matches. Keep the flag off when merging upstream edits to them. |
 
-Folders that don't come from pstack: `pr` (combined from [Matt Pocock](https://github.com/mattpocock)'s `pr` and [Theo](https://github.com/t3dotgg)'s `file-pr`) and `let-him-cook`. This file tracks pstack only.
+Folders that don't come from pstack: `pr` (combined from [Matt Pocock](https://github.com/mattpocock)'s `pr` and [Theo](https://github.com/t3dotgg)'s `file-pr`), `let-him-cook`, and `sdd`. This file tracks pstack only.
 
 ## Local tweaks
 

@@ -74,6 +74,7 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 | [arena](arena/SKILL.md) | Writes competing drafts, picks a base, and grafts in the best parts of the rest. |
 | [figure-it-out](figure-it-out/SKILL.md) | Designs a playbook for big migrations and multi-part changes. |
 | [sharpen](sharpen/SKILL.md) | Makes a task deeper, not bigger, and rewrites the prompt. |
+| [sdd](sdd/SKILL.md) | Writes a spec with testable requirements to `docs/specs/` before any code. |
 
 ### Prove it
 
@@ -109,10 +110,11 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 
 ## Where it came from
 
-Every skill except `let-him-cook` and `pr` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
+Every skill except `let-him-cook`, `pr`, and `sdd` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
 
 - `let-him-cook` is new here, built from the ideas in [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills)'s `poteto-mode` playbooks, minus the delegation.
 - `pr` combines [Matt Pocock](https://github.com/mattpocock)'s [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr).
+- `sdd` is new here, drawing on the spec formats of [GitHub Spec Kit](https://github.com/github/spec-kit) and [Kiro](https://kiro.dev/docs/specs/) (EARS requirements, Given/When/Then scenarios). No text is copied.
 - Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
 
 ## License
