@@ -75,6 +75,8 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 | [figure-it-out](figure-it-out/SKILL.md) | Designs a playbook for big migrations and multi-part changes. |
 | [sharpen](sharpen/SKILL.md) | Makes a task deeper, not bigger, and rewrites the prompt. |
 | [sdd](sdd/SKILL.md) | Writes a spec with testable requirements to `docs/specs/` before any code. |
+| [grill-me](grill-me/SKILL.md) | Interviews you in rounds about a plan or idea until every decision is settled. |
+| [domain-modeling](domain-modeling/SKILL.md) | Keeps the project's terms in `GLOSSARY.md` and hard-to-reverse decisions in `docs/adr/`. Other skills read the glossary when it exists. |
 
 ### Prove it
 
@@ -110,7 +112,7 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 
 ## Where it came from
 
-Every skill except `let-him-cook`, `pr`, and `sdd` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
+Every skill except `let-him-cook`, `pr`, `sdd`, `grill-me`, and `domain-modeling` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
 
 Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
 
@@ -120,6 +122,8 @@ Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills
 | --- | --- |
 | [let-him-cook](let-him-cook/SKILL.md) | The `poteto-mode` playbooks in [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), minus the delegation. |
 | [pr](pr/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
+| [grill-me](grill-me/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), with the body of his [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) skill and fact-finding run inline. |
+| [domain-modeling](domain-modeling/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling), as published. |
 | [sdd](sdd/SKILL.md) | The spec formats of [GitHub Spec Kit](https://github.com/github/spec-kit) and [Kiro](https://kiro.dev/docs/specs/) (EARS requirements, Given/When/Then scenarios). No text is copied. |
 
 ## License

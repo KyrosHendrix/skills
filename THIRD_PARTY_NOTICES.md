@@ -36,7 +36,7 @@ SOFTWARE.
 
 Source: https://github.com/mattpocock/skills
 
-Covers: parts of `pr`.
+Covers: parts of `pr`, `grill-me`, and `domain-modeling`.
 
 ```
 MIT License

@@ -40,14 +40,23 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | `LICENSE` ([Lauren Tan](https://github.com/poteto)) | `LICENSE` ([Kyros Abas](https://github.com/KyrosHendrix)), with [Lauren](https://github.com/poteto)'s notice in `THIRD_PARTY_NOTICES.md` | The root license covers this repo's own work. If a merge changes `LICENSE`, keep `main`'s version and copy any change to Lauren's notice into `THIRD_PARTY_NOTICES.md`. |
 | (none) | `let-him-cook/` | Local skill, not tracked from pstack. Routes a task to the skills it needs, inline. Written from the ideas in `poteto-mode`'s playbooks and Non-negotiables, with every delegation step removed. |
 | (none) | `sdd/` | Local skill, not tracked from pstack. Writes one spec file with testable requirements to `docs/specs/`, then stops. |
+| (none) | `grill-me/` | Local skill, not tracked from pstack. Matt Pocock's `grill-me` with his `grilling` body merged in and fact-finding run inline. |
+| (none) | `domain-modeling/` | Local skill, not tracked from pstack. Matt Pocock's `domain-modeling`, as published. It writes `GLOSSARY.md` and ADRs, and the skills in Local tweaks read the glossary. |
 | `disable-model-invocation: true` on every skill | Removed from `benchmark-checklist`, `blast-radius`, `how`, `interrogate`, `tdd`, `teach`, `technical-writing`, `typescript-best-practices`, `unslop`, and `why` | These load on their own when a task matches. Keep the flag off when merging upstream edits to them. |
 
-Folders that don't come from pstack: `pr` (combined from [Matt Pocock](https://github.com/mattpocock)'s `pr` and [Theo](https://github.com/t3dotgg)'s `file-pr`), `let-him-cook`, and `sdd`. This file tracks pstack only.
+Folders that don't come from pstack: `pr` (combined from [Matt Pocock](https://github.com/mattpocock)'s `pr` and [Theo](https://github.com/t3dotgg)'s `file-pr`), `let-him-cook`, `sdd`, `grill-me`, and `domain-modeling`. The pstack sections here don't cover them. [Matt Pocock's skills](#matt-pococks-skills) tracks `pr`, `grill-me`, and `domain-modeling`.
 
 ## Local tweaks
 
 One line per skill changed beyond the rules above, newest first.
 
+- `architect`: names types and modules with `GLOSSARY.md` terms when the file exists, and adds new names through `domain-modeling`.
+- `bro`: uses `GLOSSARY.md` terms when the file exists.
+- `how`: reads `GLOSSARY.md` first when it exists and uses its terms.
+- `interrogate`: uses `GLOSSARY.md` terms in the intent and findings when the file exists.
+- `sharpen`: uses `GLOSSARY.md` terms in the rewritten prompt when the file exists.
+- `tdd`: names the regression test with `GLOSSARY.md` terms when the file exists.
+- `why`: uses `GLOSSARY.md` terms when the file exists.
 - `recall`: searches each source of the shared record one at a time instead of spawning one investigator per source.
 - `teach`: runs `how` and `why` one after the other instead of in parallel.
 - `arena`: writes candidates one at a time and skips the cross-judge when inline.
@@ -81,14 +90,39 @@ When resolving conflicts:
 - A modify/delete conflict on a dropped skill means upstream edited it. Read the change, then `git rm` it again unless you want it back.
 - A new upstream skill arrives as a new folder. Apply the rules above before keeping it, and add it to the tables here.
 
-Finish by updating "Last synced commit" in this file, committing, and pushing both branches with `git push origin main upstream`. Then update the other clone (see below).
+Finish by updating "Last synced commit" in this file, committing, and pushing both branches with `git push origin main upstream`. Then update the other clones (see below).
 
-## Two clones
+## Matt Pocock's skills
 
-`~/.claude/skills` (Claude Code) and `~/.agents/skills` (other harnesses) are separate clones of the same GitHub repo. Work in one, push both branches, then update the other before you change anything there:
+Three skills come from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, see `THIRD_PARTY_NOTICES.md`). No branch holds his snapshots. Compare his files at the base commit and at his latest commit, then port the difference by hand.
+
+| Field | Value |
+| --- | --- |
+| Upstream repo | `https://github.com/mattpocock/skills` |
+| Base commit | `abeeaf9` (2026-11-19) |
+
+| Ours | His source | What we changed |
+| --- | --- | --- |
+| `pr` | `skills/engineering/pr/` | Adds a Title section with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr), and the description says "title or body". |
+| `grill-me` | `skills/productivity/grill-me/` and `skills/productivity/grilling/` | `grill-me` is his one-line stub, so `grilling`'s body sits in our `SKILL.md`. Facts get looked up inline, with the sub-agent behind a **Dispatch** note. Adds the `GLOSSARY.md` line. |
+| `domain-modeling` | `skills/engineering/domain-modeling/` | None. Files are LF. |
+
+To check for an update:
 
 ```bash
-cd ~/.claude/skills   # the clone you didn't work in
+W=/tmp/matt-sync && rm -rf $W && git clone -q https://github.com/mattpocock/skills $W
+git -C $W log --oneline abeeaf9..HEAD -- skills/engineering/pr skills/productivity/grill-me skills/productivity/grilling skills/engineering/domain-modeling
+git -C $W diff abeeaf9..HEAD -- <his source path>
+```
+
+Port each change into our skill and keep what the table says we changed. Apply the three rules above to new text. Then set "Base commit" to his latest commit. A new skill of his that we take gets a row here.
+
+## Three clones
+
+`~/.claude/skills` (Claude Code), `~/.agents/skills` (Codex and others), and `~/.gemini/config/skills` (Gemini) are separate clones of the same GitHub repo. Work in one, push both branches, then update each of the others before you change anything there:
+
+```bash
+cd ~/.gemini/config/skills   # each clone you didn't work in
 git pull --ff-only
 git fetch origin upstream:upstream
 ```

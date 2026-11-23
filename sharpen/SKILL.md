@@ -11,6 +11,6 @@ I want a deeper version of this task, not a bigger one. Before rewriting it, do 
 3. Name the specific methods and tools they would use.
 4. Say what, other than you or me, would show the result is right.
 
-Then rewrite my prompt to ask for exactly that.
+Then rewrite my prompt to ask for exactly that. If the project has a `GLOSSARY.md`, use its terms in the rewrite.
 
 Have the rewritten prompt ask the agent to prototype any choice an experiment can settle and recommend an option based on what it observed. Leave product or preference choices that no experiment can settle for me to make.

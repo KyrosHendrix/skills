@@ -15,6 +15,8 @@ This skill holds no technique of its own. It picks which of the other skills to 
 2. Match the task to one recipe below. A large or cross-cutting effort, or work the user will review after stepping away, goes to [figure-it-out](../figure-it-out/SKILL.md) instead.
 3. Open a todo list whose first items are the recipe's steps. A step you skip stays in the list as `skip: <reason>`.
 
+If the project has a `GLOSSARY.md`, read it first and use its terms for anything you name or write.
+
 Commit, push, or open a PR only when the user asked for it. The always-loaded instructions win over any step here.
 
 ## Recipes
@@ -87,6 +89,7 @@ The structure changes. The behavior does not. A real bug or missing feature foun
 | --- | --- |
 | A fork you could settle by running something | Run it instead of asking. |
 | Tempted to add a layer or abstraction | [laziness-protocol](../principles/laziness-protocol.md) |
+| A term gets settled, or clashes with `GLOSSARY.md` | [domain-modeling](../domain-modeling/SKILL.md) |
 | Designing types | [type-system-discipline](../principles/type-system-discipline.md), plus [typescript-best-practices](../typescript-best-practices/SKILL.md) in `.ts` files |
 | A contested design | A check that runs: the project's `verify-<app>` skill, or [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md) for logic that moves between states. [interrogate](../interrogate/SKILL.md) only when nothing can run yet. |
 | Reporting a number you measured | [benchmark-checklist](../benchmark-checklist/SKILL.md) |

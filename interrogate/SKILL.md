@@ -11,7 +11,7 @@ Act as an adversary and try to break a change or a design. A finding survives on
 
 ## Frame
 
-The scope is what the user names. Otherwise it is the branch diff from its merge base with the base branch, through the working tree. State the intent with the [in-your-own-words](../in-your-own-words/SKILL.md) skill, from the user's message, the commits, and the PR description. Ask the user when the intent is unclear.
+The scope is what the user names. Otherwise it is the branch diff from its merge base with the base branch, through the working tree. State the intent with the [in-your-own-words](../in-your-own-words/SKILL.md) skill, from the user's message, the commits, and the PR description. Ask the user when the intent is unclear. If the project has a `GLOSSARY.md`, use its terms in the intent and the findings.
 
 ## Attack
 

@@ -24,7 +24,7 @@ For a one-line fix or throwaway work, say a spec isn't worth it and stop.
 ## Writing rules
 
 - Describe what the system does, never how. No file names, functions, libraries, or schemas in Requirements or User stories. Those belong in the implementer's plan.
-- Name the entities and states the feature deals with before writing requirements, per [model-the-domain](../principles/model-the-domain.md). Use those names consistently.
+- Name the entities and states the feature deals with before writing requirements, per [model-the-domain](../principles/model-the-domain.md). Use those names consistently. If the project has a `GLOSSARY.md`, use its terms, and add each new one through [domain-modeling](../domain-modeling/SKILL.md).
 - Write each requirement in one EARS pattern: `WHEN <event> THE SYSTEM SHALL <response>`, `IF <condition> THEN THE SYSTEM SHALL <response>`, or `WHILE <state> THE SYSTEM SHALL <response>`. Use a plain `THE SYSTEM SHALL` for a requirement that always holds.
 - Give every requirement a `Check:` that observes behavior from outside, per [test-behavior-not-implementation](../principles/test-behavior-not-implementation.md). A requirement you can't check is a wish: rewrite it or cut it.
 - Put a number on every non-functional requirement: "p99 under 400 ms", not "fast".
