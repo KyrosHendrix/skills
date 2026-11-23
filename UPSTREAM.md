@@ -9,9 +9,9 @@ Most skills here are a port of [pstack](https://github.com/cursor/plugins/tree/m
 | Upstream repo | `https://github.com/cursor/plugins`, path `pstack/` |
 | Last synced commit | `2f87c85` (2026-11-16) |
 | Git branch holding upstream as published | `upstream` |
-| Git branch holding this folder | `main` |
+| Git branch holding this folder | `dev` (work lands here; `main` changes only through a PR from `dev`) |
 
-The `upstream` branch stores `pstack/skills/*` and `pstack/LICENSE` at the repo root, so its paths match `main`. Never edit `upstream` by hand. It only receives new pstack snapshots.
+The `upstream` branch stores `pstack/skills/*` and `pstack/LICENSE` at the repo root, so its paths match `dev` and `main`. Never edit `upstream` by hand. It only receives new pstack snapshots.
 
 ## Rules every local edit follows
 
@@ -37,7 +37,7 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | `pstack/agents/poteto-agent.md` | Not ported | Cursor agent for `poteto-mode`. |
 | (none) | `<skill>/agents/openai.yaml` | Codex skill metadata, added locally. |
 | (none) | `HARNESSES.md`, `UPSTREAM.md` | Harness map and this file. |
-| `LICENSE` ([Lauren Tan](https://github.com/poteto)) | `LICENSE` ([Kyros Abas](https://github.com/KyrosHendrix)), with [Lauren](https://github.com/poteto)'s notice in `THIRD_PARTY_NOTICES.md` | The root license covers this repo's own work. If a merge changes `LICENSE`, keep `main`'s version and copy any change to Lauren's notice into `THIRD_PARTY_NOTICES.md`. |
+| `LICENSE` ([Lauren Tan](https://github.com/poteto)) | `LICENSE` ([Kyros Abas](https://github.com/KyrosHendrix)), with [Lauren](https://github.com/poteto)'s notice in `THIRD_PARTY_NOTICES.md` | The root license covers this repo's own work. If a merge changes `LICENSE`, keep `dev`'s version and copy any change to Lauren's notice into `THIRD_PARTY_NOTICES.md`. |
 | (none) | `let-him-cook/` | Local skill, not tracked from pstack. Routes a task to the skills it needs, inline. Written from the ideas in `poteto-mode`'s playbooks and Non-negotiables, with every delegation step removed. |
 | (none) | `sdd/` | Local skill, not tracked from pstack. Writes one spec file with testable requirements to `docs/specs/`, then stops. |
 | (none) | `grill-me/` | Local skill, not tracked from pstack. Matt Pocock's `grill-me` with his `grilling` body merged in and fact-finding run inline. |
@@ -90,7 +90,7 @@ When resolving conflicts:
 - A modify/delete conflict on a dropped skill means upstream edited it. Read the change, then `git rm` it again unless you want it back.
 - A new upstream skill arrives as a new folder. Apply the rules above before keeping it, and add it to the tables here.
 
-Finish by updating "Last synced commit" in this file, committing, and pushing both branches with `git push origin main upstream`. Then update the other clones (see below).
+Finish by updating "Last synced commit" in this file, committing, and pushing both branches with `git push origin dev upstream`. Then update the other clones (see below).
 
 ## Matt Pocock's skills
 
