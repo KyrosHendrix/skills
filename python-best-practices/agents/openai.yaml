@@ -1,0 +1,4 @@
+interface:
+  display_name: "python-best-practices"
+policy:
+  allow_implicit_invocation: true

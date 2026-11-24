@@ -100,6 +100,7 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 | [unslop](unslop/SKILL.md) | Cuts AI tells from any writing. |
 | [technical-writing](technical-writing/SKILL.md) | Holds docs, READMEs, and commit messages to a real style standard. |
 | [typescript-best-practices](typescript-best-practices/SKILL.md) | Keeps `.ts` and `.tsx` code typed properly. |
+| [python-best-practices](python-best-practices/SKILL.md) | Same rules for `.py` and `.pyi` code. |
 | [correct](correct/SKILL.md) | Finds mistakes agents keep repeating and makes them impossible. |
 | [reflect](reflect/SKILL.md) | Turns lessons from a session into edits to the skills. |
 | [show-me-your-work](show-me-your-work/SKILL.md) | Keeps a decision log for long or unattended runs. |
@@ -112,7 +113,7 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 
 ## Where it came from
 
-Every skill except `let-him-cook`, `pr`, `sdd`, `grill-me`, and `domain-modeling` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
+Every skill except `let-him-cook`, `pr`, `sdd`, `grill-me`, `domain-modeling`, and `python-best-practices` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
 
 Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
 
@@ -124,6 +125,7 @@ Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills
 | [pr](pr/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
 | [grill-me](grill-me/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), with the body of his [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) skill and fact-finding run inline. |
 | [domain-modeling](domain-modeling/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling), as published. |
+| [python-best-practices](python-best-practices/SKILL.md) | Our own. Follows the rules of `typescript-best-practices`, written for Python 3.13 with its own examples. |
 | [sdd](sdd/SKILL.md) | The spec formats of [GitHub Spec Kit](https://github.com/github/spec-kit) and [Kiro](https://kiro.dev/docs/specs/) (EARS requirements, Given/When/Then scenarios). No text is copied. |
 
 ## License
