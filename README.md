@@ -89,6 +89,7 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 | [maintain-verification-skill](maintain-verification-skill/SKILL.md) | Keeps that skill honest as the app changes. |
 | [create-formal-verification-skill](create-formal-verification-skill/SKILL.md) | Generates formal verification for the code where bugs cost the most. |
 | [maintain-formal-verification-skill](maintain-formal-verification-skill/SKILL.md) | Brings the formal specs back in line after code changes. |
+| [statechart](statechart/SKILL.md) | Checks a TLA+ model and draws it as a Mermaid statechart. |
 | [interrogate](interrogate/SKILL.md) | Attacks a change, keeping only the findings a run proves. |
 
 ### Ship it clean

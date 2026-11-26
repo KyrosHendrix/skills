@@ -1,7 +1,6 @@
 ---
 name: python-best-practices
 description: Python best practices. Use when reading or editing any .py or .pyi file.
-paths: ["**/*.py", "**/*.pyi"]
 ---
 
 # Python best practices
