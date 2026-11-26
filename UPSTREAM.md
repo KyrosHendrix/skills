@@ -7,7 +7,7 @@ Most skills here are a port of [pstack](https://github.com/cursor/plugins/tree/m
 | Field | Value |
 | --- | --- |
 | Upstream repo | `https://github.com/cursor/plugins`, path `pstack/` |
-| Last synced commit | `2f87c85` (2026-11-16) |
+| Last synced commit | `b7b93c3` (2026-11-26) |
 | Git branch holding upstream as published | `upstream` |
 | Git branch holding this folder | `dev` (work lands here; `main` changes only through a PR from `dev`) |
 
@@ -33,6 +33,7 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | `poteto-mode` | Dropped | [Lauren](https://github.com/poteto)'s personal working style, built on delegating to subagents. `~/.claude/CLAUDE.md` covers the style. `let-him-cook` replaces its playbooks and triggers. |
 | `setup-pstack` | Dropped | Writes Cursor's per-role model rule. `HARNESSES.md` replaces it. |
 | `statechart` | Dropped | Not wanted. An upstream edit to it shows up as a modify/delete conflict. `git rm` it again. |
+| `reframe` | Dropped | Not wanted. An upstream edit to it shows up as a modify/delete conflict. `git rm` it again. |
 | `pstack/agents/comment-sicko.md` | `no-comments/references/comment-sicko.md` | Read by `no-comments` instead of loaded as a Cursor agent. |
 | `pstack/agents/poteto-agent.md` | Not ported | Cursor agent for `poteto-mode`. |
 | (none) | `<skill>/agents/openai.yaml` | Codex skill metadata, added locally. |
@@ -72,13 +73,13 @@ git -C $W/plugins sparse-checkout set pstack
 git -C $W/plugins log -1 --format='%h %cd'
 ```
 
-If the commit is newer than "Last synced commit", put the snapshot on `upstream` from a separate worktree. This keeps the live skills folder untouched until the merge.
+If the commit is newer than "Last synced commit", put the snapshot on `upstream` from a separate worktree. This keeps the live skills folder untouched until the merge. The worktree shares `.git/info/exclude`, which ignores every top-level folder, so `git add` needs `-f` there.
 
 ```bash
 cd ~/.claude/skills   # or ~/.agents/skills
 git worktree add $W/up upstream
 git -C $W/up rm -rq . && cp -r $W/plugins/pstack/skills/. $W/plugins/pstack/LICENSE $W/up/
-git -C $W/up add -A && git -C $W/up commit -m "chore(upstream): import pstack <sha>"
+git -C $W/up add -fA . && git -C $W/up commit -m "chore(upstream): import pstack <sha>"
 git worktree remove $W/up
 git diff upstream~1 upstream --stat   # what upstream changed since the last sync
 git merge upstream
@@ -99,7 +100,7 @@ Three skills come from [mattpocock/skills](https://github.com/mattpocock/skills)
 | Field | Value |
 | --- | --- |
 | Upstream repo | `https://github.com/mattpocock/skills` |
-| Base commit | `abeeaf9` (2026-11-19) |
+| Base commit | `6f7f783` (2026-11-25) |
 
 | Ours | His source | What we changed |
 | --- | --- | --- |
@@ -111,8 +112,8 @@ To check for an update:
 
 ```bash
 W=/tmp/matt-sync && rm -rf $W && git clone -q https://github.com/mattpocock/skills $W
-git -C $W log --oneline abeeaf9..HEAD -- skills/engineering/pr skills/productivity/grill-me skills/productivity/grilling skills/engineering/domain-modeling
-git -C $W diff abeeaf9..HEAD -- <his source path>
+git -C $W log --oneline 6f7f783..HEAD -- skills/engineering/pr skills/productivity/grill-me skills/productivity/grilling skills/engineering/domain-modeling
+git -C $W diff 6f7f783..HEAD -- <his source path>
 ```
 
 Port each change into our skill and keep what the table says we changed. Apply the three rules above to new text. Then set "Base commit" to his latest commit. A new skill of his that we take gets a row here.
