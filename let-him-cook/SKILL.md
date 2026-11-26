@@ -50,7 +50,7 @@ If the answer leads to a code change, stop and offer it. On a yes, switch to Bug
 3. If the code crosses a function boundary, run [architect](../architect/SKILL.md).
 4. Build in small units, verifying each before the next, per [sequence-verifiable-units](../principles/sequence-verifiable-units.md).
 5. Verify on the real surface, per [prove-it-works](../principles/prove-it-works.md). Use the project's `verify-<app>` skill when one exists. When none exists and the app has a user surface, offer [create-verification-skill](../create-verification-skill/SKILL.md).
-6. Settle a contested design with a check that runs, not with review opinions. For logic that moves between states (a protocol, sync, payments, a multi-step flow), use [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md). Run [interrogate](../interrogate/SKILL.md) only when nothing can run yet, and keep only the findings a run proves.
+6. Settle a contested design with a check that runs, not with review opinions. For logic that moves between states (a protocol, sync, payments, a multi-step flow), use [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md) and read its results with [statechart](../statechart/SKILL.md). Run [interrogate](../interrogate/SKILL.md) only when nothing can run yet, and keep only the findings a run proves.
 7. For a wide change, run [blast-radius](../blast-radius/SKILL.md).
 
 **Reply:** what you built, what you chose and why, and the decisions still open.

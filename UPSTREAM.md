@@ -32,7 +32,6 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | `poteto-help` | Dropped | Help for pstack's Cursor setup. |
 | `poteto-mode` | Dropped | [Lauren](https://github.com/poteto)'s personal working style, built on delegating to subagents. `~/.claude/CLAUDE.md` covers the style. `let-him-cook` replaces its playbooks and triggers. |
 | `setup-pstack` | Dropped | Writes Cursor's per-role model rule. `HARNESSES.md` replaces it. |
-| `statechart` | Dropped | Not wanted. An upstream edit to it shows up as a modify/delete conflict. `git rm` it again. |
 | `reframe` | Dropped | Not wanted. An upstream edit to it shows up as a modify/delete conflict. `git rm` it again. |
 | `pstack/agents/comment-sicko.md` | `no-comments/references/comment-sicko.md` | Read by `no-comments` instead of loaded as a Cursor agent. |
 | `pstack/agents/poteto-agent.md` | Not ported | Cursor agent for `poteto-mode`. |
