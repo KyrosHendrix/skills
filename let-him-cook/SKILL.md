@@ -23,10 +23,10 @@ Commit, push, or open a PR only when the user asked for it. The always-loaded in
 
 ### Investigation
 
-A question about how or why something works, or which option to pick. Read-only: edit nothing.
+A question about how or why something works, or which option to pick. Read-only. Edit nothing.
 
 1. Trace the code the question is about. For a question about motivation or history, also run [why](../why/SKILL.md).
-2. Answer with an overview, key concepts, how it works, where things live, and gotchas, dropping any that don't apply. For a choice between options, answer with a recommendation and a tradeoffs table instead.
+2. Answer with an overview, key concepts, how it works, where things live, and gotchas, and drop any that don't apply. For a choice between options, answer with a recommendation and a tradeoffs table instead.
 
 If the answer leads to a code change, stop and offer it. On a yes, switch to Bug fix or Feature.
 
@@ -34,7 +34,7 @@ If the answer leads to a code change, stop and offer it. On a yes, switch to Bug
 
 ### Bug fix
 
-1. Reproduce it yourself with a focused case on the surface where it was reported.
+1. Reproduce it yourself with a focused case where it was reported.
 2. Find the cause. Trace the affected code and run [why](../why/SKILL.md) for regression history. Rule hypotheses out with runs, not by reading. When two fixes on one premise fail, apply [attack-the-premise](../principles/attack-the-premise.md).
 3. If the fix crosses a function boundary, run [architect](../architect/SKILL.md) first.
 4. When the bug has a cheap local test target, write the failing test first per [tdd](../tdd/SKILL.md). Otherwise keep the repro script.
@@ -45,12 +45,14 @@ If the answer leads to a code change, stop and offer it. On a yes, switch to Bug
 
 ### Feature
 
+When implementing a spec file that has a `STATUS` line and a `Verification` table, set `STATUS: IN-PROGRESS` at the start, run each requirement's `Check`, record the results in `Verification`, and set `STATUS: DONE` only when every row is `PASS`.
+
 1. Trace the code the feature touches.
 2. Name the data shape first, per [model-the-domain](../principles/model-the-domain.md).
 3. If the code crosses a function boundary, run [architect](../architect/SKILL.md).
-4. Build in small units, verifying each before the next, per [sequence-verifiable-units](../principles/sequence-verifiable-units.md).
-5. Verify on the real surface, per [prove-it-works](../principles/prove-it-works.md). Use the project's `verify-<app>` skill when one exists. When none exists and the app has a user surface, offer [create-verification-skill](../create-verification-skill/SKILL.md).
-6. Settle a contested design with a check that runs, not with review opinions. For logic that moves between states (a protocol, sync, payments, a multi-step flow), use [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md) and read its results with [statechart](../statechart/SKILL.md). Run [interrogate](../interrogate/SKILL.md) only when nothing can run yet, and keep only the findings a run proves.
+4. Build in small units and verify each before the next, per [sequence-verifiable-units](../principles/sequence-verifiable-units.md).
+5. Verify against the running app, per [prove-it-works](../principles/prove-it-works.md). Run any project verification skill covering the change, such as `verify-<app>` or a local formal check. When no app verification skill exists and the app has a UI, CLI, or API, offer [create-verification-skill](../create-verification-skill/SKILL.md).
+6. Settle a contested design with a check that runs, not with review opinions. When tests are not enough for concurrency, retries, state machines, parsers, unsafe code, or invariants, run the project's formal verification skill or use [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md). Read its output with [statechart](../statechart/SKILL.md) only when the check is a TLA+ model. Run [interrogate](../interrogate/SKILL.md) only when nothing can run yet, and keep only the findings a run proves.
 7. For a wide change, run [blast-radius](../blast-radius/SKILL.md).
 
 **Reply:** what you built, what you chose and why, and the decisions still open.
@@ -89,9 +91,12 @@ The structure changes. The behavior does not. A real bug or missing feature foun
 | --- | --- |
 | A fork you could settle by running something | Run it instead of asking. |
 | Tempted to add a layer or abstraction | [laziness-protocol](../principles/laziness-protocol.md) |
-| A term gets settled, or clashes with `GLOSSARY.md` | [domain-modeling](../domain-modeling/SKILL.md) |
-| Designing types | [type-system-discipline](../principles/type-system-discipline.md), plus [typescript-best-practices](../typescript-best-practices/SKILL.md) in `.ts` files |
-| A contested design | A check that runs: the project's `verify-<app>` skill, or [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md) for logic that moves between states. [interrogate](../interrogate/SKILL.md) only when nothing can run yet. |
+| A term is settled, clashes with `GLOSSARY.md`, or a hard-to-reverse trade-off is settled | [domain-modeling](../domain-modeling/SKILL.md) |
+| Designing types | [type-system-discipline](../principles/type-system-discipline.md) |
+| Editing `.ts`, `.tsx`, `.py`, or `.pyi` files | [typescript-best-practices](../typescript-best-practices/SKILL.md) for `.ts` and `.tsx`, [python-best-practices](../python-best-practices/SKILL.md) for `.py` and `.pyi` |
+| State-changing operations that can retry or stop mid-run | [make-operations-idempotent](../principles/make-operations-idempotent.md) |
+| Changing code covered by a project verification skill | Run that project skill to recheck the change. |
+| A contested design or high-stakes invariant | Run a project verification skill or [create-formal-verification-skill](../create-formal-verification-skill/SKILL.md), and [statechart](../statechart/SKILL.md) only when the check is a TLA+ model. Run [interrogate](../interrogate/SKILL.md) only when nothing can run yet. |
 | Reporting a number you measured | [benchmark-checklist](../benchmark-checklist/SKILL.md) |
 | Long, unattended, or multi-phase work | [show-me-your-work](../show-me-your-work/SKILL.md) |
 | Agents keep making the same mistake in this repo | [correct](../correct/SKILL.md) |
