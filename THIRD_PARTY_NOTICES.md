@@ -6,7 +6,7 @@ This repo includes work from the projects below, each under the MIT License. Eac
 
 Source: https://github.com/cursor/plugins/tree/main/pstack
 
-Covers: `architect`, `arena`, `benchmark-checklist`, `blast-radius`, `bro`, `correct`, `create-formal-verification-skill`, `create-verification-skill`, `figure-it-out`, `how`, `in-your-own-words`, `interrogate`, `ketchup`, `ketchup-video`, `maintain-formal-verification-skill`, `maintain-verification-skill`, `no-comments`, `principles`, `recall`, `reflect`, `sharpen`, `show-me-your-work`, `statechart`, `swarm`, `tdd`, `teach`, `technical-writing`, `typescript-best-practices`, `unslop`, `why`. `let-him-cook` draws on ideas from pstack's `poteto-mode`.
+Covers: `architect`, `arena`, `benchmark-checklist`, `blast-radius`, `correct`, `create-formal-verification-skill`, `create-verification-skill`, `figure-it-out`, `how`, `in-your-own-words`, `interrogate`, `maintain-formal-verification-skill`, `maintain-verification-skill`, `no-comments`, `principles`, `recall`, `reflect`, `sharpen`, `show-me-your-work`, `statechart`, `swarm`, `tdd`, `teach`, `technical-writing`, `typescript-best-practices`, `unslop`, `why`. `let-him-cook` draws on ideas from pstack's `poteto-mode`.
 
 ```
 MIT License
@@ -36,7 +36,7 @@ SOFTWARE.
 
 Source: https://github.com/mattpocock/skills
 
-Covers: parts of `pr`, `grill-me`, and `domain-modeling`.
+Covers: `wait-what`, and parts of `pr`, `grill-me`, and `domain-modeling`.
 
 ```
 MIT License
