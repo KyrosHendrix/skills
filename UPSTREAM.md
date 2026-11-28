@@ -28,6 +28,8 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | 24 `principle-*/SKILL.md` skills | A `principles/` reference folder, one `<name>.md` per principle, with no index and no skill entry | Skills link the file they need at the step that needs it, so nothing loads on its own. Upstream edits to `principle-<name>/SKILL.md` go into `principles/<name>.md` by hand. |
 | `principle-build-the-lever`, `principle-exhaust-the-design-space`, `principle-experience-first`, `principle-explain-the-number`, `principle-guard-the-context-window` | Dropped | Each repeats another skill or the default behavior, or no step links to it. An upstream edit to one shows up as a modify/delete conflict. `git rm` it again. |
 | `automate-me` | Dropped | Not wanted. |
+| `bro` | Dropped | Replaced by Matt Pocock's `wait-what`. An upstream edit to it shows up as a modify/delete conflict. `git rm` it again. |
+| `ketchup`, `ketchup-video` | Dropped | Not wanted. An upstream edit to either shows up as a modify/delete conflict. `git rm` it again. |
 | `make-bot-ui` | Dropped | Not wanted. |
 | `poteto-help` | Dropped | Help for pstack's Cursor setup. |
 | `poteto-mode` | Dropped | [Lauren](https://github.com/poteto)'s personal working style, built on delegating to subagents. `~/.claude/CLAUDE.md` covers the style. `let-him-cook` replaces its playbooks and triggers. |
@@ -42,16 +44,16 @@ Rewrite any upstream change that breaks one of these. Don't copy it in as is.
 | (none) | `sdd/` | Local skill, not tracked from pstack. Writes one spec file with testable requirements to `docs/specs/`, then stops. |
 | (none) | `grill-me/` | Local skill, not tracked from pstack. Matt Pocock's `grill-me` with his `grilling` body merged in and fact-finding run inline. |
 | (none) | `domain-modeling/` | Local skill, not tracked from pstack. Matt Pocock's `domain-modeling`, as published. It writes `GLOSSARY.md` and ADRs, and the skills in Local tweaks read the glossary. |
+| (none) | `wait-what/` | Local skill, not tracked from pstack. Matt Pocock's `wait-what`, as published. Replaces `bro`. |
 | `disable-model-invocation: true` on every skill | Removed from `benchmark-checklist`, `blast-radius`, `how`, `interrogate`, `tdd`, `teach`, `technical-writing`, `typescript-best-practices`, `unslop`, and `why` | These load on their own when a task matches. Keep the flag off when merging upstream edits to them. |
 
-Folders that don't come from pstack: `pr` (combined from [Matt Pocock](https://github.com/mattpocock)'s `pr` and [Theo](https://github.com/t3dotgg)'s `file-pr`), `let-him-cook`, `sdd`, `grill-me`, and `domain-modeling`. The pstack sections here don't cover them. [Matt Pocock's skills](#matt-pococks-skills) tracks `pr`, `grill-me`, and `domain-modeling`.
+Folders that don't come from pstack: `pr` (combined from [Matt Pocock](https://github.com/mattpocock)'s `pr` and [Theo](https://github.com/t3dotgg)'s `file-pr`), `let-him-cook`, `sdd`, `grill-me`, `domain-modeling`, and `wait-what`. The pstack sections here don't cover them. [Matt Pocock's skills](#matt-pococks-skills) tracks `pr`, `grill-me`, `domain-modeling`, and `wait-what`.
 
 ## Local tweaks
 
 One line per skill changed beyond the rules above, newest first.
 
 - `architect`: names types and modules with `GLOSSARY.md` terms when the file exists, and adds new names through `domain-modeling`.
-- `bro`: uses `GLOSSARY.md` terms when the file exists.
 - `how`: reads `GLOSSARY.md` first when it exists and uses its terms.
 - `interrogate`: uses `GLOSSARY.md` terms in the intent and findings when the file exists.
 - `sharpen`: uses `GLOSSARY.md` terms in the rewritten prompt when the file exists.
@@ -94,7 +96,7 @@ Finish by updating "Last synced commit" in this file, committing, and pushing bo
 
 ## Matt Pocock's skills
 
-Three skills come from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, see `THIRD_PARTY_NOTICES.md`). No branch holds his snapshots. Compare his files at the base commit and at his latest commit, then port the difference by hand.
+Four skills come from [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, see `THIRD_PARTY_NOTICES.md`). No branch holds his snapshots. Compare his files at the base commit and at his latest commit, then port the difference by hand.
 
 | Field | Value |
 | --- | --- |
@@ -106,12 +108,13 @@ Three skills come from [mattpocock/skills](https://github.com/mattpocock/skills)
 | `pr` | `skills/engineering/pr/` | Adds a Title section with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr), and the description says "title or body". |
 | `grill-me` | `skills/productivity/grill-me/` and `skills/productivity/grilling/` | `grill-me` is his one-line stub, so `grilling`'s body sits in our `SKILL.md`. Facts get looked up inline, with the sub-agent behind a **Dispatch** note. Adds the `GLOSSARY.md` line. |
 | `domain-modeling` | `skills/engineering/domain-modeling/` | None. Files are LF. |
+| `wait-what` | `skills/productivity/wait-what/` | None. Files are LF. |
 
 To check for an update:
 
 ```bash
 W=/tmp/matt-sync && rm -rf $W && git clone -q https://github.com/mattpocock/skills $W
-git -C $W log --oneline 6f7f783..HEAD -- skills/engineering/pr skills/productivity/grill-me skills/productivity/grilling skills/engineering/domain-modeling
+git -C $W log --oneline 6f7f783..HEAD -- skills/engineering/pr skills/productivity/grill-me skills/productivity/grilling skills/engineering/domain-modeling skills/productivity/wait-what
 git -C $W diff 6f7f783..HEAD -- <his source path>
 ```
 

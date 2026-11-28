@@ -61,9 +61,7 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 | [why](why/SKILL.md) | Finds the reasons behind code, decisions, and regressions in commits and PR discussions, and looks further when those run thin. |
 | [teach](teach/SKILL.md) | Runs `how` and `why`, then explains it all plainly. |
 | [recall](recall/SKILL.md) | Rebuilds your recent context from chat history and shared records. |
-| [ketchup](ketchup/SKILL.md) | Catches you up on what changed since your last message. |
-| [ketchup-video](ketchup-video/SKILL.md) | Same, as a short subtitled slide video. |
-| [bro](bro/SKILL.md) | Restates the last message with no jargon. |
+| [wait-what](wait-what/SKILL.md) | Re-explains a message that didn't land, with context and simpler English. |
 | [in-your-own-words](in-your-own-words/SKILL.md) | Restates your goal to check the agent actually gets it. |
 
 ### Design it
@@ -114,9 +112,9 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 
 ## Where it came from
 
-Every skill except `let-him-cook`, `pr`, `sdd`, `grill-me`, `domain-modeling`, and `python-best-practices` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
+Every skill except `let-him-cook`, `pr`, `sdd`, `grill-me`, `domain-modeling`, `wait-what`, and `python-best-practices` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
 
-Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
+Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `bro`, `ketchup`, `ketchup-video`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
 
 ### Others
 
@@ -126,6 +124,7 @@ Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills
 | [pr](pr/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
 | [grill-me](grill-me/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), with the body of his [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) skill and fact-finding run inline. |
 | [domain-modeling](domain-modeling/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling), as published. |
+| [wait-what](wait-what/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [wait-what](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what), as published. |
 | [python-best-practices](python-best-practices/SKILL.md) | Our own. Follows the rules of `typescript-best-practices`, written for Python 3.13 with its own examples. |
 | [sdd](sdd/SKILL.md) | The spec formats of [GitHub Spec Kit](https://github.com/github/spec-kit) and [Kiro](https://kiro.dev/docs/specs/) (EARS requirements, Given/When/Then scenarios). No text is copied. |
 
