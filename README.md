@@ -1,6 +1,6 @@
 # let him cook
 
-**Agent skills for Claude Code, Codex, and Cursor.** [Lauren Tan](https://github.com/poteto)'s [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), rebuilt so one agent does the work in one context, on the plan you already have.
+**A curated set of agent skills for Claude Code, Codex, and Cursor.** One agent does the work in one context, on the plan you already have. Most of the skills are adapted from [Lauren Tan](https://github.com/poteto)'s [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), and [the rest come from other places](#where-it-came-from).
 
 You describe the task. `let-him-cook` picks the recipe, runs the right skills in order, and proves the result before calling it done.
 
@@ -23,7 +23,7 @@ flowchart LR
 
 I don't have unlimited tokens.
 
-[pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) is great, but it fans work out to subagents, and each one re-reads the same context, so the cost multiplies fast on a single plan. This keeps the skills and has one agent do every step itself, with subagents only when you ask.
+A skill that hands work to subagents pays for the same context again each time one of them loads it, so the cost multiplies fast on a single plan. Every skill here, whatever its source, has one agent do the work itself. You get subagents only when you ask for them. `swarm` exists for exactly that.
 
 ## The house rules
 
@@ -112,21 +112,17 @@ Most skills run only when you type their slash command, like `/architect` or `/s
 
 ## Where it came from
 
-Every skill except `let-him-cook`, `pr`, `sdd`, `grill-me`, `domain-modeling`, `wait-what`, and `python-best-practices` is adapted from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto). [UPSTREAM.md](UPSTREAM.md) records every change and how [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) updates get merged. The `upstream` branch holds [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) exactly as published.
+A skill with more than one source appears in each of its rows.
 
-Left out from [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills): `automate-me`, `bro`, `ketchup`, `ketchup-video`, `make-bot-ui`, `poteto-help`, `poteto-mode`, and `setup-pstack`. [UPSTREAM.md](UPSTREAM.md) says why.
+| Source | Skills | What changed |
+| --- | --- | --- |
+| [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills) by [Lauren Tan](https://github.com/poteto) | [architect](architect/SKILL.md), [arena](arena/SKILL.md), [benchmark-checklist](benchmark-checklist/SKILL.md), [blast-radius](blast-radius/SKILL.md), [correct](correct/SKILL.md), [create-formal-verification-skill](create-formal-verification-skill/SKILL.md), [create-verification-skill](create-verification-skill/SKILL.md), [figure-it-out](figure-it-out/SKILL.md), [how](how/SKILL.md), [in-your-own-words](in-your-own-words/SKILL.md), [interrogate](interrogate/SKILL.md), [maintain-formal-verification-skill](maintain-formal-verification-skill/SKILL.md), [maintain-verification-skill](maintain-verification-skill/SKILL.md), [no-comments](no-comments/SKILL.md), [recall](recall/SKILL.md), [reflect](reflect/SKILL.md), [sharpen](sharpen/SKILL.md), [show-me-your-work](show-me-your-work/SKILL.md), [statechart](statechart/SKILL.md), [swarm](swarm/SKILL.md), [tdd](tdd/SKILL.md), [teach](teach/SKILL.md), [technical-writing](technical-writing/SKILL.md), [typescript-best-practices](typescript-best-practices/SKILL.md), [unslop](unslop/SKILL.md), [why](why/SKILL.md). [let-him-cook](let-him-cook/SKILL.md) draws on the ideas in `poteto-mode`. | Skills run inline, with no harness-specific config and with relative links between skills. `let-him-cook` takes ideas from the `poteto-mode` playbooks and drops the delegation. The [principles](principles/) come from pstack too. |
+| [Matt Pocock](https://github.com/mattpocock)'s [skills](https://github.com/mattpocock/skills/tree/main/skills) | [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) as [pr](pr/SKILL.md), [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me) and [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) as [grill-me](grill-me/SKILL.md), [domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling) as [domain-modeling](domain-modeling/SKILL.md), and [wait-what](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what) as [wait-what](wait-what/SKILL.md). | `pr` gains title rules. `grill-me` includes the body of `grilling`, finds facts inline, and uses the project glossary. The other two are as published. |
+| [Theo Browne](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr) | [pr](pr/SKILL.md) | Its title rules are part of `pr`. |
+| [GitHub Spec Kit](https://github.com/github/spec-kit) and [Kiro](https://kiro.dev/docs/specs/) | [sdd](sdd/SKILL.md) | Uses their spec formats (EARS requirements, Given/When/Then scenarios). No text is copied. |
+| This repo | [let-him-cook](let-him-cook/SKILL.md), [python-best-practices](python-best-practices/SKILL.md), [sdd](sdd/SKILL.md) | `python-best-practices` follows the rules of `typescript-best-practices`, written for Python 3.13 with its own examples. |
 
-### Others
-
-| Skill | Built from |
-| --- | --- |
-| [let-him-cook](let-him-cook/SKILL.md) | The `poteto-mode` playbooks in [pstack](https://github.com/cursor/plugins/tree/main/pstack/skills), minus the delegation. |
-| [pr](pr/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [pr](https://github.com/mattpocock/skills/tree/main/skills/engineering/pr) with the title rules from [Theo](https://github.com/t3dotgg)'s [file-pr](https://github.com/t3dotgg/tstack/tree/main/skills/file-pr). |
-| [grill-me](grill-me/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [grill-me](https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me), with the body of his [grilling](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) skill and fact-finding run inline. |
-| [domain-modeling](domain-modeling/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [domain-modeling](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling), as published. |
-| [wait-what](wait-what/SKILL.md) | [Matt Pocock](https://github.com/mattpocock)'s [wait-what](https://github.com/mattpocock/skills/tree/main/skills/productivity/wait-what), as published. |
-| [python-best-practices](python-best-practices/SKILL.md) | Our own. Follows the rules of `typescript-best-practices`, written for Python 3.13 with its own examples. |
-| [sdd](sdd/SKILL.md) | The spec formats of [GitHub Spec Kit](https://github.com/github/spec-kit) and [Kiro](https://kiro.dev/docs/specs/) (EARS requirements, Given/When/Then scenarios). No text is copied. |
+[UPSTREAM.md](UPSTREAM.md) records the changes to pstack and Matt Pocock's skills, which pstack skills were dropped, and how updates get merged. The `upstream` branch holds pstack's skills as published.
 
 ## License
 
